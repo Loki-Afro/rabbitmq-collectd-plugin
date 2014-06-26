@@ -71,7 +71,7 @@ def get_stats():
         stats['ctl_memory_%s' % queue_name] = ctl_stats[2]
         stats['ctl_consumers_%s' % queue_name] = ctl_stats[3]
 
-    if not stats['ctl_memory'] > 0:
+    if not stats['ctl_memory'] > 0 and 'queue_name' in locals():
         logger('warn', '%s reports 0 memory usage. This is probably incorrect.'
             % RABBITMQCTL_BIN)
 
